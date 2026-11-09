@@ -50,14 +50,7 @@ AI gợi ý thêm: sau khi tự scan 6 ý, tôi hỏi AI và giữ lại ý #7 v
 | Job Story |Khi nhóm đang thực hiện bài tập hoặc dự án chung, tôi muốn biết từng thành viên đã hoàn thành công việc đến đâu, để kịp thời điều chỉnh và hoàn thành bài đúng hạn |
 | Actor | Trưởng nhóm sinh viên phụ trách phân chia và theo dõi công việc của các thành viên|
 | Thời điểm / bối cảnh | Khi nhóm được giao bài tập lớn, dự án hoặc bài thuyết trình có nhiều đầu việc và thời hạn|
-| Quy trình hiện tại |
-1. Nhóm nhận đề bài từ giảng viên 
-2. Trưởng nhóm phân chia nhiệm vụ
-3. Thành viên thực hiện công việc và trao đổi qua Zalo/Messenger
-4. Trưởng nhóm chủ động hỏi tiến độ từng người
-5. Thành viên gửi kết quả qua Google Drive hoặc nhóm chat
-6. Trưởng nhóm tổng hợp và kiểm tra bài
-7. Nhóm hoàn thiện và nộp bài|
+| Quy trình hiện tại | 1. Nhóm nhận đề bài từ giảng viên · 2. Trưởng nhóm phân chia nhiệm vụ · 3. Thành viên thực hiện công việc và trao đổi qua Zalo/Messenger · 4. Trưởng nhóm chủ động hỏi tiến độ từng người · 5. Thành viên gửi kết quả qua Google Drive hoặc nhóm chat · 6. Trưởng nhóm tổng hợp và kiểm tra bài · 7. Nhóm hoàn thiện và nộp bài|
 | Bottleneck | Bước 4 và 5: Trưởng nhóm phải chủ động hỏi từng thành viên để cập nhật tiến độ; thông tin nằm rải rác trong tin nhắn và tài liệu nên khó nắm được tình trạng chung|
 | Impact (nếu không giải thì sao) | Ảnh hưởng đến trưởng nhóm và các thành viên; có thể làm tăng thời gian theo dõi, số lần nhắc nhở và nguy cơ hoàn thành bài muộn. Cần khảo sát để xác định mức độ thực tế|
 | Success metric (baseline → target) | Giảm thời gian trưởng nhóm dành cho việc theo dõi tiến độ, giảm số lần phải hỏi lại và không làm tăng số nhiệm vụ trễ hạn|
@@ -65,16 +58,16 @@ AI gợi ý thêm: sau khi tự scan 6 ý, tôi hỏi AI và giữ lại ý #7 v
 | Giả thuyết về AI (nếu có) | AI hỗ trợ tổng hợp cập nhật tiến độ từ thông tin các thành viên cung cấp, nhận diện nhiệm vụ có nguy cơ trễ và tạo báo cáo cho trưởng nhóm. Trưởng nhóm vẫn kiểm tra và xác nhận thông tin|
 | Cảm nhận nhanh | Workflow |
 
-Quy trình nháp hiện tại:
+**Quy trình nháp hiện tại:**
 
 [1 Nhận đề bài] -> [2 Trưởng nhóm phân chia nhiệm vụ] -> [3 Thành viên thực hiện công việc] -> [4 Trưởng nhóm hỏi tiến độ từng người] -> [5 Thành viên gửi kết quả qua nhiều nền tảng] -> [6 Trưởng nhóm tổng hợp và kiểm tra] -> [7 Hoàn thiện và nộp bài]
 
 
 ### Problem Card #2 và #3
-| Card | Actor | Bottleneck | Metric dự kiến | Cảm nhận nhanh |
-|---|---|---|
-| Quản lý deadline nhiều môn học| Sinh viên| Deadline nằm ở nhiều nguồn như LMS, Email và nhóm chat; phải kiểm tra thủ công| Đo thời gian kiểm tra deadline mỗi tuần và số lần bỏ lỡ hạn nộp| Workflow|
-| Tìm kiếm tài liệu học tậpc| Sinh viên| Tài liệu nằm rải rác trong LMS, Google Drive, Email và nhóm chat; phải tìm từng nguồn| Đo thời gian tìm một tài liệu và số lần phải nhờ bạn gửi lại| Workflow|
+| **Card** | **Actor** | **Bottleneck** | **Metric dự kiến** | **Cảm nhận nhanh** |
+|---|---|---|---|---|
+| Quản lý deadline nhiều môn học | Sinh viên | Deadline nằm ở nhiều nguồn như LMS, Email và nhóm chat; phải kiểm tra thủ công. | Đo thời gian kiểm tra deadline mỗi tuần và số lần bỏ lỡ hạn nộp. | Workflow |
+| Tìm kiếm tài liệu học tập | Sinh viên | Tài liệu nằm rải rác trong LMS, Google Drive, Email và nhóm chat; phải tìm từng nguồn. | Đo thời gian tìm một tài liệu và số lần phải nhờ bạn gửi lại. | Workflow |
 
 ### Card muốn pitch nhất
 
@@ -88,7 +81,7 @@ Quy trình nháp hiện tại:
 |---|---|---|
 | Chưa có bằng chứng cụ thể chứng minh trưởng nhóm mất nhiều thời gian theo dõi tiến độ| Đồng ý| Đưa thời gian theo dõi, số lần nhắc nhở và số nhiệm vụ trễ hạn vào danh sách cần đo khi phỏng vấn|
 |Chưa chắc việc cập nhật chậm là nguyên nhân chính khiến nhóm trễ deadline| Đồng ý| Bổ sung câu hỏi phỏng vấn để xác định nguyên nhân trễ tiến độ, chẳng hạn phân chia nhiệm vụ chưa rõ hay thành viên thiếu thời gian|
-| CCó thể giải quyết vấn đề bằng Google Sheets hoặc Trello mà không cần AI| Đồng ý| Bổ sung phương án không dùng AI để so sánh, không mặc định AI là giải pháp tốt nhất|
+| Có thể giải quyết vấn đề bằng Google Sheets hoặc Trello mà không cần AI| Đồng ý| Bổ sung phương án không dùng AI để so sánh, không mặc định AI là giải pháp tốt nhất|
 | AI có thể tự động nhắc nhở và đánh giá mức độ đóng góp của từng thành viên| Không đồng ý hoàn toàn| Không để AI tự đánh giá thành viên khi chưa có dữ liệu đáng tin cậy; giữ quyền xác nhận và đánh giá ở trưởng nhóm|
 ---
 
