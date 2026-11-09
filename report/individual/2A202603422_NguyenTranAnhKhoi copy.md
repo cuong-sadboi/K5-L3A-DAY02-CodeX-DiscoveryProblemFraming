@@ -6,12 +6,11 @@
 
 ## 1. Thông tin học viên
 
-- Họ tên:
-- MSSV:
+- Họ tên: Nguyễn Trần Anh Khôi
+- MSSV: 2A202603422
 - Email trường (không bắt buộc, repo có thể để public):
-- Tên nhóm:
-- Link repo nhóm:
-
+- Tên nhóm: CodeX
+- Link repo nhóm: https://github.com/cuong-sadboi/K5-L3A-DAY02-CodeX-DiscoveryProblemFraming
 ---
 
 ## 2. Scan problem (CP1)
@@ -89,16 +88,16 @@ AI gợi ý thêm: sau khi tự scan 6 ý, tôi hỏi AI và giữ lại ý #7 v
 
 | Hoạt động | Tôi đã làm gì? | Kết quả / ảnh hưởng tới bài nhóm |
 |---|---|---|
-| Pitch Problem Card | | |
-| Phản biện bài của bạn khác | Câu hỏi tôi đã đặt: | |
-| Nhận phản biện | Câu hỏi tôi nhận được: | Tôi đã sửa gì: |
-| Gom cluster / cây OST | | |
-| Chọn candidate problem | | |
-| Kiểm chứng / research | | |
-| Quy trình nhóm | | |
-| Problem Statement | | |
-| Mức can thiệp AI | | |
-| Quyết định | | |
+| Pitch Problem Card | Trình bày 3 ý tưởng: theo dõi tiến độ nhóm, quản lý deadline học tập và tìm kiếm tài liệu học tập. | Đóng góp 3 vấn đề để nhóm cùng xem xét và đánh giá. |
+| Phản biện bài của bạn khác | Đặt câu hỏi về ý tưởng tìm kiếm tài liệu: Nếu tạo một folder Google Drive chung từ đầu kỳ thì vấn đề có còn không? AI thực sự can thiệp vào bước nào? | Giúp nhóm xem xét liệu vấn đề có thực sự cần AI hay chỉ cần công cụ tìm kiếm thông thường.|
+| Nhận phản biện | Nhận phản biện 3 ý tưởng về khả năng truy cập dữ liệu Zalo/Messenger, tính cần thiết của AI khi đã có Google Calendar và khả năng giải quyết bằng Google Drive. | Nhận ra các ý tưởng ban đầu còn thiếu bằng chứng và chưa làm rõ giá trị AI mang lại. |
+| Gom cluster / cây OST | Tham gia xem xét, phân nhóm các vấn đề do các thành viên đề xuất. | Giúp nhóm nhận diện các vấn đề có điểm chung và thuận tiện so sánh các candidate. |
+| Chọn candidate problem | Tham gia đánh giá các candidate và thống nhất lựa chọn Candidate #1 do Cường đề xuất: khó khăn khi tiếp nhận và setup dự án cũ. | Nhóm chọn được vấn đề có khó khăn thực tế trong quy trình làm việc của Developer. |
+| Kiểm chứng / research | Tham gia tìm hiểu và tổng hợp thông tin từ 3 Developer sử dụng Java, Python và SAP. | Làm rõ khó khăn khi đọc tài liệu, hiểu source code, cấu hình môi trường và xử lý lỗi. |
+| Quy trình nhóm | Tham gia phân tích các bước từ đọc tài liệu, tìm hiểu source code đến cài đặt môi trường và xử lý lỗi. | Nhóm xác định khâu xử lý lỗi và chờ hỗ trợ là phần tốn nhiều thời gian cần cải thiện. |
+| Problem Statement | Tham gia làm rõ vấn đề dựa trên kết quả phỏng vấn, không chỉ giới hạn ở lỗi thư viện mà còn bao gồm tài liệu và cấu trúc dự án. | Problem Statement phản ánh đầy đủ hơn khó khăn khi Developer tiếp nhận dự án cũ. |
+| Mức can thiệp AI | Tham gia đánh giá vai trò AI trong việc phân tích log, tìm nguyên nhân và đề xuất hướng khắc phục. | Nhóm định hướng AI hỗ trợ đề xuất, Developer kiểm tra và phê duyệt trước khi thực hiện. |
+| Quyết định | Tham gia thảo luận hướng kết hợp Docker để chuẩn hóa môi trường và AI Workflow để hỗ trợ phân tích lỗi. | Hình thành hướng giải pháp ban đầu, vẫn cần tiếp tục kiểm chứng tính khả thi. |
 
 ---
 
@@ -106,12 +105,12 @@ AI gợi ý thêm: sau khi tự scan 6 ý, tôi hỏi AI và giữ lại ý #7 v
 
 | Checkpoint | Tôi dùng AI để làm gì? | AI hữu ích ở đâu? | AI sai hoặc hời hợt ở đâu? | Tôi sửa gì bằng nhận định của mình? |
 |---|---|---|---|---|
-| CP1 Scan | | | | |
-| CP2 Problem Card | | | | |
-| CP4 Research | | | | |
-| CP5 Quy trình | | | | |
-| CP5–6 Problem Statement | | | | |
-| CP6 Mức can thiệp / quyết định | | | | |
+| CP1 Scan | Gợi ý thêm vấn đề sau khi tự scan. | Mở rộng góc nhìn. | Có ý tưởng chưa phải pain thật. | Tự chọn 3 vấn đề gần với trải nghiệm của mình. |
+| CP2 Problem Card | Phản biện Problem Card. | Phát hiện điểm chưa rõ, thiếu bằng chứng. | Dễ đề xuất giải pháp quá sớm. | Tự chỉnh sửa dựa trên trải nghiệm thực tế. |
+| CP4 Phỏng vấn | Không sử dụng AI để thay thế phỏng vấn. | - | AI không thể thay thế dữ liệu từ người thật.| Tự tham gia thu thập và tổng hợp câu trả lời. |
+| CP5 Quy trình | Hỗ trợ chuyển mô tả thành sơ đồ. | Trình bày quy trình dễ hiểu hơn. | Có thể thêm hoặc sắp xếp sai bước. | Tự kiểm tra và chỉnh lại theo quy trình thực tế. |
+| CP5–6 Problem Statement | Nhờ AI phản biện, tìm lỗ hổng. | Phát hiện giả định chưa có bằng chứng. | Có thể đề xuất hướng giải pháp chưa phù hợp. | Nhóm tự thảo luận và đưa ra quyết định. |
+| CP6 Mức can thiệp / quyết định | Không dùng AI viết thay. | | Câu trả lời AI dễ chung chung. | Tự viết dựa trên trải nghiệm cá nhân. |
 
 ---
 
@@ -121,17 +120,30 @@ Trả lời bằng trải nghiệm thật của bạn, tối thiểu 200 từ ch
 
 **6.1. Tôi học được gì khi nghe top 3 problems của các bạn khác?**
 
+Tôi học được rằng mỗi người đều có những vấn đề thực tế khác nhau. Một vấn đề đáng giải quyết cần có người gặp phải và có ảnh hưởng cụ thể, chứ không chỉ là một ý tưởng hay.
+
 **6.2. Nhóm có lúc nào bị "solution-first" (nghĩ giải pháp trước khi hiểu vấn đề) không? Lúc đó nhóm nhận ra và xử lý thế nào?**
 
+Có. Ban đầu nhóm nghĩ ngay đến việc dùng Docker và AI để giải quyết lỗi setup. Sau khi thảo luận và phỏng vấn Developer, nhóm nhận ra khó khăn còn đến từ tài liệu cũ, source code và cấu hình môi trường. Vì vậy, nhóm quay lại tìm hiểu vấn đề trước khi chốt giải pháp.
 **6.3. Tôi có đổi ý sau khi bị phản biện không? Kể một lần cụ thể.**
+
+Có. Ban đầu tôi nghĩ lỗi dependency là vấn đề chính. Nhưng qua phỏng vấn, tôi thấy Developer còn mất nhiều thời gian để đọc hiểu source code và cấu hình môi trường. Vì vậy, tôi đồng ý mở rộng vấn đề sang onboarding và setup dự án cũ.
 
 **6.4. Kết quả kiểm chứng (phỏng vấn/survey/research) có làm tôi bất ngờ không? Điều gì?**
 
+Có. Tôi bất ngờ khi có Developer mất 2–3 ngày để setup dự án. Ngoài ra, cả Developer 2 và 3 đều muốn AI chỉ phân tích và đề xuất, còn việc áp dụng phải do Developer quyết định.
+
 **6.5. Điều khó nhất khi viết Problem Statement là gì?**
+
+Khó nhất là viết vấn đề đủ cụ thể nhưng không đưa giải pháp vào quá sớm. Tôi cũng phải phân biệt đâu là số liệu nhóm ước tính và đâu là thông tin được xác nhận từ phỏng vấn.
 
 **6.6. Nếu làm lại, tôi sẽ đổi gì? Tôi sẽ phản biện nhóm mạnh hơn ở điểm nào?**
 
+Tôi sẽ phỏng vấn thêm nhiều Developer và hỏi kỹ hơn về thời gian, nguyên nhân lỗi ở từng bước. Tôi cũng sẽ phản biện nhóm nhiều hơn về con số 360 phút và mục tiêu setup dưới 30 phút vì chưa có đủ dữ liệu xác nhận.
+
 **6.7. Hiểu bài:** giải thích bằng 5–8 câu, không nhìn tài liệu, chuỗi *problem → quy trình → metric → boundary → mức can thiệp AI → quyết định* của bài nhóm mình.
+
+Vấn đề của nhóm là Developer mất nhiều thời gian khi setup dự án cũ do tài liệu, source code và môi trường chưa đầy đủ hoặc không đồng nhất. Quy trình gồm đọc tài liệu, tìm hiểu source, cài đặt môi trường, chạy thử và debug. Nhóm ước tính thời gian là 360 phút, trong đó 270 phút dành cho xử lý lỗi và nhờ hỗ trợ. Phạm vi giải quyết tập trung vào hỗ trợ onboarding và setup dự án. AI sẽ phân tích log và đề xuất cách sửa, không tự ý thay đổi code hay cấu hình. Nhóm định hướng kết hợp Docker và AI Workflow để giảm thời gian setup.
 
 ---
 
