@@ -12,10 +12,10 @@
 
 | STT | Họ và tên | MSSV | Vai trò trong nhóm | Tài khoản GitHub |
 |---:|---|---|---|---|
-| 1 | Nguyễn Tiến Cường | 2A202603425 | Nhóm trưởng | cuong-sadboi |
-| 2 | Nguyễn Trần Anh Khôi | 2A202603422 | Thành viên | khoinguyentran1111 |
-| 3 | | | | |
-| 4 | | | | |
+| 1 | Nguyễn Tiến Cường | 2A202603425 | Nhóm trưởng, Kiến trúc giải pháp (System Architect) | cuong-sadboi |
+| 2 | Nguyễn Vũ Khanh | 2A202603427 | Thành viên, Research & Đánh giá AI (Eval) | KhnhVux |
+| 3 | Nguyễn Trần Anh Khôi | 2A202603422 | Thành viên, Kiểm chứng The Mom Test & Quy trình | khoinguyentran1111 |
+| 4 | Nguyễn Quang Vũ | 2A202603407 | Thành viên, Quản trị rủi ro & Thiết kế AI Canvas | Noxclara |
 
 Không ghi email hay số điện thoại vào bảng này, vì repo có thể để public.
 
@@ -25,13 +25,13 @@ Gợi ý vai trò (một người có thể giữ nhiều vai): điều phối t
 
 | Checkpoint | Người chính | Người hỗ trợ | Sản phẩm |
 |---|---|---|---|
-| CP3 — Hội tụ nhóm | | | Cluster, cây OST, bảng chấm điểm |
-| CP4 — Kiểm chứng | | | Assumption map, snapshot hoặc survey |
-| CP4 — Research | | | Bảng research có link |
-| CP5 — Quy trình trước/sau | | | Quy trình + bảng before/after |
-| CP5 — Problem Statement v0 | | | Problem Statement v0 |
-| CP6 — Mức can thiệp + Problem Statement v1 | | | Ma trận, AI Canvas, eval, Problem Statement v1 |
-| CP6 — Quyết định | | | 4 rủi ro + Go/Not Yet/No-Go |
+| CP3 — Hội tụ nhóm | Nguyễn Tiến Cường | Cả nhóm | Cluster, cây OST, bảng chấm điểm chọn Card #1 |
+| CP4 — Kiểm chứng | Nguyễn Trần Anh Khôi | Nguyễn Tiến Cường | Assumption map, Interview Snapshot The Mom Test |
+| CP4 — Research | Nguyễn Vũ Khanh | Nguyễn Quang Vũ | Bảng research Dev Containers, Docker, Copilot CLI |
+| CP5 — Quy trình trước/sau | Nguyễn Tiến Cường | Nguyễn Vũ Khanh, Anh Khôi | Sơ đồ quy trình Docker + AI Workflow, bảng before/after |
+| CP5 — Problem Statement v0 | Nguyễn Quang Vũ | Nguyễn Tiến Cường | Problem Statement v0 (6 trường, ranh giới Boundary chặt) |
+| CP6 — Mức can thiệp + Problem Statement v1 | Nguyễn Tiến Cường | Nguyễn Quang Vũ | Ma trận Mơ hồ x Phức tạp, AI Canvas, Problem Statement v1 |
+| CP6 — Quyết định | Nguyễn Vũ Khanh | Cả nhóm | Tiêu chí AI Eval, 4 rủi ro + Quyết định Go và ngưỡng dừng |
 
 ## Cá nhân
 
@@ -41,22 +41,30 @@ Mỗi thành viên thêm một mục theo mẫu dưới đây, tiêu đề là `
 
 **Phần việc phụ trách:**
 
-- Nhóm trưởng điều phối nhóm CodeX, tham gia pitch và phản biện tại CP3.
-- (Sẽ cập nhật các task cụ thể sau khi nhóm chốt phân công CP4 - CP6).
+- Nhóm trưởng điều phối nhóm CodeX, chủ trì buổi pitch và phản biện tại CP3.
+- Chịu trách nhiệm kiến trúc Quy trình tương lai (Mục 4.2 ở CP5): phân định rạch ròi giữa No-AI (Docker Compose), AI Workflow (phân tích log lỗi build) và Human-in-the-Loop.
+- Phụ trách phân tích Ma trận độ mơ hồ × độ phức tạp và lập luận chọn mức can thiệp Workflow (Mục 6.1 & 6.2 ở CP6).
+- Hoàn thiện Problem Statement v1, kết luận Quyết định Go phạm vi nhỏ kèm ngưỡng dừng (Mục 8.2 ở CP6).
 
 **Đóng góp cụ thể** (mình đã làm gì, ra sản phẩm gì):
 
-- Hoàn thành báo cáo cá nhân CP1 (10 problem) và CP2 (3 Problem Card + quy trình nháp).
-- Chuẩn bị sẵn Card #1 để pitch với nhóm.
+- Soạn thảo Problem Card #1 đạt điểm cao nhất nhóm (34/35) và được cả nhóm nhất trí chọn làm bài toán chung.
+- Thiết kế sơ đồ quy trình tương lai giúp giảm thời gian thao tác gỡ lỗi từ 270 phút xuống dưới 30 phút.
+- Phân tích ranh giới can thiệp AI: giữ Docker làm nền tảng No-AI, chỉ can thiệp AI ở bước phân tích log crash; thiết lập boundary cấm AI tự chạy lệnh shell quyền root và cấm đọc source code nghiệp vụ bảo mật.
+- Hoàn thiện toàn bộ báo cáo cá nhân CP1 đến CP7 với 7 câu reflection sâu sắc và bản Change Request Log trong `report/assets/change-request-log.md`.
 
 **Bằng chứng** (phần nào trong `group_report.md`, file nào trong `report/assets/`, commit nào):
 
 - `report/individual/2A202603425_NguyenTienCuong.md`.
-- Lịch sử commit trên branch cá nhân / repo từ tài khoản `cuong-sadboi`.
+- `report/assets/change-request-log.md`.
+- Mục 2, Mục 4.2, Mục 6.1, 6.2, 8.2 trong `report/team/group_report.md`.
+- Lịch sử commit trên repo từ tài khoản GitHub `cuong-sadboi`.
 
 **Điều mình học được từ phần nhóm:**
 
-- (Sẽ điền sau khi hoàn thành phần làm việc nhóm ở CP7).
+- Học được cách "phanh" tư duy solution-first lại để đào sâu vào nỗi đau thực tế và điểm nghẽn quy trình.
+- Hiểu sâu sắc rằng AI không phải là cây đũa thần giải quyết mọi thứ; một giải pháp xuất sắc là biết kết hợp giữa No-AI (Docker chuẩn hóa môi trường) với AI Workflow (chỉ can thiệp vào bước bóc tách log lỗi có độ mơ hồ cao).
+- Trải nghiệm thực tế vai trò nhóm trưởng điều phối, phản biện đa chiều và bảo vệ ranh giới an toàn cho hệ thống.
 
 ### NguyenTranAnhKhoi-2A202603422
 
