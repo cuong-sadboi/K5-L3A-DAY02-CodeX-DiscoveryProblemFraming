@@ -13,7 +13,7 @@
 | STT | Họ và tên | MSSV | Vai trò trong nhóm | Tài khoản GitHub |
 |---:|---|---|---|---|
 | 1 | Nguyễn Tiến Cường | 2A202603425 | Nhóm trưởng | cuong-sadboi |
-| 2 | | | | |
+| 2 | Nguyễn Trần Anh Khôi | 2A202603422 | Thành viên | khoinguyentran1111 |
 | 3 | | | | |
 | 4 | | | | |
 
@@ -58,9 +58,34 @@ Mỗi thành viên thêm một mục theo mẫu dưới đây, tiêu đề là `
 
 - (Sẽ điền sau khi hoàn thành phần làm việc nhóm ở CP7).
 
-### HoVaTen-MSSV
+### NguyenTranAnhKhoi-2A202603422
 
-> *(Các thành viên khác rebase về và copy mục này thành tên mình để tự điền phần việc cá nhân)*
+**Phần việc phụ trách:**
+
+- Phụ trách kiểm chứng người dùng tại CP4: phỏng vấn nhanh một Developer ở nhóm khác về trải nghiệm setup dự án cũ, lỗi thực tế, thời gian xử lý và cách khắc phục.
+- Phụ trách chi tiết hóa quy trình setup dự án hiện tại tại CP5, xác định các bước gây tốn thời gian và bottleneck chính.
+- Tham gia phân tích câu hỏi Google PAIR tại CP6, xác định mức độ can thiệp phù hợp của AI (Augment/Automate) và đánh giá rủi ro False Positive/False Negative.
+
+**Đóng góp cụ thể** (mình đã làm gì, ra sản phẩm gì):
+
+- Chuẩn bị kịch bản phỏng vấn, tập trung vào trải nghiệm thực tế khi Developer setup dự án cũ.
+- Xây dựng mẫu Interview Snapshot để ghi nhận vấn đề, thời gian xử lý, cách giải quyết và câu nói đáng nhớ của người được phỏng vấn.
+- Xây dựng bảng Current Workflow gồm 5 bước setup dự án, với tổng thời gian 360 phút.
+- Phân tích bottleneck tại bước Build crash lỗi dependency và bước nhờ Techlead hỗ trợ, chiếm tổng cộng 270 phút (75% quy trình).
+- Phân tích định hướng Augment thay vì Automate và rủi ro False Positive/False Negative theo Google PAIR.
+
+**Bằng chứng** (phần nào trong `group_report.md`, file nào trong `report/assets/`, commit nào):
+
+- `report/individual/2A202603422_NguyenTranAnhKhoi.md`.
+- Lịch sử commit trên branch cá nhân / repo từ tài khoản `khoinguyentran1111`.
+
+**Điều mình học được từ phần nhóm:**
+
+- Biết cách kiểm chứng một vấn đề bằng trải nghiệm thực tế thay vì chỉ dựa vào giả định.
+- Hiểu cách phân tích quy trình để xác định bottleneck và lựa chọn mức độ can thiệp AI phù hợp.
+- Nhận ra AI nên hỗ trợ Developer ra quyết định, không nên tự ý thay đổi dự án khi chưa được kiểm tra.
+
+### HoVaTen-MSSV
 
 **Phần việc phụ trách:**
 

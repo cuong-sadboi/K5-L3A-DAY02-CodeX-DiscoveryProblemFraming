@@ -104,26 +104,61 @@ Giả định nhóm kiểm chứng trong buổi này:
 
 ### 3.2. Kiểm chứng
 
-Cách đã dùng: Phỏng vấn / Survey / Log, ticket, review
+Phương pháp: Phỏng vấn bán cấu trúc qua Messenger, tập trung vào trải nghiệm setup dự án cũ thực tế, khó khăn, thời gian xử lý và cách khắc phục.
 
-Interview snapshot (mỗi buổi phỏng vấn một bảng, hoặc đặt file trong `report/assets/cp4-interview-snapshot-N.md`):
+Đối tượng phỏng vấn: 3 Developer, làm việc với các công nghệ Java, Python/AI và SAP.
+
+Interview snapshot
 
 | Trường | Nội dung |
 |---|---|
-| Người được hỏi (vai trò, không ghi tên thật) | |
-| Câu nói đáng nhớ nhất (nguyên văn) | |
-| Lần gần nhất gặp vấn đề này: chuyện gì đã xảy ra? | |
-| Hiện đang xử lý bằng cách nào (workaround)? | |
-| Mất bao lâu, bao lần? | |
-| Insight / opportunity rút ra | |
+| Người được hỏi (vai trò, không ghi tên thật) | Developer|
+| Câu nói đáng nhớ nhất (nguyên văn) | "Tôi mất khoảng 2–3 ngày để setup và chạy được dự án." |
+| Lần gần nhất gặp vấn đề này: chuyện gì đã xảy ra? | Tiếp nhận dự án nền tảng ảo 360 độ sử dụng Java. Gặp khó khăn khi đọc hiểu cấu trúc source code, cấu hình môi trường và kết nối database. |
+| Hiện đang xử lý bằng cách nào (workaround)? | Đọc tài liệu, tìm hiểu từng module, debug và trao đổi với thành viên trong nhóm khi gặp vấn đề khó. |
+| Mất bao lâu, bao lần? | Khoảng 2–3 ngày để setup; gặp vấn đề tương tự khoảng 2–3 lần mỗi dự án. |
+| Insight / opportunity rút ra | Cần hỗ trợ đọc hiểu source code, hướng dẫn cấu hình môi trường và kết nối các thành phần của dự án.|
+
+
+| Trường | Nội dung |
+|---|---|
+| Người được hỏi (vai trò, không ghi tên thật) | Developer|
+| Câu nói đáng nhớ nhất (nguyên văn) | "Tôi muốn công cụ phân tích log, xác định nguyên nhân và đề xuất cách sửa lỗi để tôi tự xác nhận trước khi áp dụng, nhằm tránh thay đổi cấu hình ngoài ý muốn." |
+| Lần gần nhất gặp vấn đề này: chuyện gì đã xảy ra? | Tiếp nhận dự án AI hỗ trợ tra cứu pháp luật sử dụng Python và các công nghệ AI liên quan. Gặp lỗi thiếu thư viện, xung đột phiên bản dependency và khó khăn khi cấu hình biến môi trường để kết nối database. |
+| Hiện đang xử lý bằng cách nào (workaround)? | Tìm kiếm trên Google, đọc README, debug và nhờ người có kinh nghiệm hỗ trợ khi cần. |
+| Mất bao lâu, bao lần? | Khoảng 1 ngày để chạy được dự án; gặp vấn đề tương tự khoảng 2–3 lần mỗi dự án. |
+| Insight / opportunity rút ra | Cần công cụ phân tích log, xác định nguyên nhân lỗi và đề xuất cách sửa; Developer cần xác nhận trước khi áp dụng.|
+
+| Trường | Nội dung |
+|---|---|
+| Người được hỏi (vai trò, không ghi tên thật) | Developer|
+| Câu nói đáng nhớ nhất (nguyên văn) | "Tài liệu chưa đầy đủ và một số hướng dẫn đã lỗi thời, khiến tôi phải tự tìm hiểu source code và tra cứu thêm để setup dự án." |
+| Lần gần nhất gặp vấn đề này: chuyện gì đã xảy ra? | Tiếp nhận dự án đặt đồ ăn trên nền tảng SAP. Cần tìm hiểu cấu trúc source code, cấu hình môi trường và kiểm tra các chức năng đặt món, quản lý đơn hàng. |
+| Hiện đang xử lý bằng cách nào (workaround)? | Kiểm tra log, đối chiếu cấu hình, tìm kiếm tài liệu và nhờ Mentor hoặc Tech Lead hỗ trợ. |
+| Mất bao lâu, bao lần? | Chưa xác định được tổng thời gian setup và tần suất. Khi cần hỗ trợ, thời gian chờ khoảng vài giờ đến nửa ngày. |
+| Insight / opportunity rút ra | Cần cải thiện tài liệu hướng dẫn, cấu hình môi trường và quản lý dependencies để giảm thời gian phụ thuộc vào Mentor/Tech Lead.|
 
 Tổng hợp:
 
 | Nguồn | Số người / số mẫu | Tín hiệu xác nhận | Tín hiệu phản bác |
 |---|---:|---|---|
-| | | | |
+| Phỏng vấn Developer | 3 người | Cả 3 đều gặp khó khăn khi tiếp nhận và setup dự án cũ. | Mẫu phỏng vấn còn nhỏ, chưa đại diện cho toàn bộ Developer. |
+| Khó khăn khi setup | 3 người | Có vấn đề liên quan đến source code, tài liệu, cấu hình môi trường, database hoặc dependencies. | Chưa xác định được một nguyên nhân duy nhất gây ra mọi vấn đề.|
+| Thời gian setup | 2/3 người có số liệu | Dev 1 mất 2–3 ngày; Dev 2 mất khoảng 1 ngày. | Dev 3 chưa cung cấp thời gian tổng setup; chưa đủ dữ liệu xác nhận mức 4–8 tiếng. |
+| Tần suất gặp lỗi | 2/3 người có số liệu | Dev 1 và Dev 2 cho biết gặp vấn đề khoảng 2–3 lần mỗi dự án. | Dev 3 chưa xác nhận tần suất. |
+| Cách xử lý | 3 người | Đều phải tự tìm hiểu, đọc tài liệu, tra cứu hoặc debug; có trường hợp cần người khác hỗ trợ. | Chưa đo được tổng thời gian thực tế dành cho từng phương pháp. |
+| Nhu cầu hỗ trợ | 3 người | Có nhu cầu hỗ trợ đọc hiểu source code, phân tích log, cấu hình môi trường và dependencies. | Chưa kiểm chứng mức độ sẵn sàng sử dụng hoặc trả phí cho giải pháp.|
+| Kiểm soát AI | 2 người trả lời trực tiếp | Dev 2 và Dev 3 muốn AI đề xuất, Developer kiểm tra trước khi áp dụng. | Chưa có câu trả lời trực tiếp của Dev 1 về quyền tự động sửa lỗi. |
 
 **Nhóm đã sửa problem thế nào sau kiểm chứng:**
+Ban đầu, nhóm tập trung vào giả định rằng vấn đề chính là xung đột version thư viện/runtime gây crash khi build dự án. Sau ba cuộc phỏng vấn, nhóm nhận thấy vấn đề rộng hơn, bao gồm:
+- Tài liệu setup thiếu hoặc lỗi thời.
+- Khó đọc hiểu cấu trúc source code và các module.
+- Cấu hình môi trường, database và dependencies chưa đồng bộ.
+- Khó xác định nguyên nhân lỗi khi khởi chạy dự án.
+- Phải phụ thuộc vào Mentor, Tech Lead hoặc thành viên có kinh nghiệm.
+
+Vì vậy, nhóm điều chỉnh problem từ việc chỉ tập trung xử lý dependency conflict sang hỗ trợ toàn bộ quá trình onboarding và setup dự án cũ. Hướng giải pháp dự kiến là chuẩn hóa môi trường bằng Docker và sử dụng AI Workflow để phân tích source code, log lỗi, đề xuất cách khắc phục. Developer vẫn giữ quyền kiểm tra và xác nhận trước khi thực hiện thay đổi.
 
 ### 3.3. Research giải pháp đã có
 
@@ -139,21 +174,19 @@ Tổng hợp:
 
 ### 4.1. Quy trình hiện tại
 
-Sơ đồ (ASCII, Mermaid hoặc link ảnh trong `report/assets/`):
-
-```text
-
-```
+Sơ đồ quy trình hiện tại:
+[![Sơ đồ quy trình hiện tại CP5](../assets/cp5-workflow-future.png)](../assets/cp5-workflow-future.png)
 
 | Bước | Actor | Input | Output | Thời gian / tần suất | Ghi chú |
 |---:|---|---|---|---|---|
-| 1 | | | | | |
-| 2 | | | | | |
-| 3 | | | | | |
-| 4 | | | | | |
-| 5 | | | | | |
+| 1 | Developer | Source code, README, tài liệu bàn giao | Nắm được thông tin và cấu trúc cơ bản của dự án | 15 phút | Tài liệu có thể thiếu hoặc lỗi thời |
+| 2 | Developer | Source code, cấu trúc thư mục, module | Hiểu luồng hoạt động và các thành phần chính | 45 phút| Có thể phải đọc và tìm hiểu nhiều module |
+| 3 | Developer | Yêu cầu runtime, biến môi trường, cấu hình hệ thống | Môi trường được cài đặt và cấu hình | 30 phút | Có thể không tương thích với source code |
+| 4 | Developer | File cấu hình, dependencies, database và source code | Dependencies được cài đặt, dự án sẵn sàng khởi chạy | 30 phút| Phát sinh lỗi khi version hoặc cấu hình không tương thích |
+| 5 | Developer | Log lỗi, tài liệu và môi trường hiện tại | Xác định nguyên nhân, khắc phục lỗi và chạy được dự án | 240 phút| Gồm 180 phút xử lý build/dependency và 60 phút hỗ trợ Tech Lead theo baseline ban đầu |
 
 **Bottleneck chính:**
+Bottleneck chính nằm ở bước 5 với 240 phút, chiếm khoảng 66,7% tổng thời gian setup. Trong đó, Developer mất khoảng 180 phút xử lý lỗi build/dependency và 60 phút chờ Tech Lead hỗ trợ. Đây là công đoạn tốn nhiều thời gian nhất và cần được ưu tiên cải thiện.
 
 ### 4.2. Quy trình tương lai
 
@@ -227,8 +260,27 @@ Vì sao:
 ### 6.4. Hai câu hỏi của Google PAIR
 
 - Người dùng muốn **được hỗ trợ (augment)** hay **giao hẳn việc (automate)**? Bằng chứng:
-- AI sai kiểu nào tệ hơn, **báo nhầm** hay **bỏ sót**? Vì sao, và thiết kế đã xử lý thế nào:
 
+Nhóm lựa chọn hướng Augment (tăng cường khả năng của Developer), không giao toàn bộ quyền setup và sửa lỗi cho AI.
+Bằng chứng phỏng vấn:
+Dev 1 muốn được hỗ trợ phân tích cấu trúc source code, hướng dẫn cấu hình môi trường, cài đặt dependencies và xử lý lỗi khi khởi chạy dự án.
+Dev 2 muốn công cụ phân tích log, xác định nguyên nhân và đề xuất cách sửa lỗi để Developer tự xác nhận trước khi áp dụng.
+Dev 3 muốn AI phân tích và đề xuất cách sửa lỗi, còn Developer kiểm tra và xác nhận để tránh phát sinh lỗi mới hoặc xung đột dependency.
+
+Lý do lựa chọn: Việc setup dự án cũ liên quan đến nhiều cấu hình và dependencies có thể ảnh hưởng trực tiếp đến khả năng hoạt động của hệ thống. Nếu AI tự ý thay đổi mà không có sự kiểm tra của Developer, dự án có thể phát sinh lỗi mới hoặc không thể chạy được.
+
+- AI sai kiểu nào tệ hơn, **báo nhầm** hay **bỏ sót**? Vì sao, và thiết kế đã xử lý thế nào:
+Nhóm ưu tiên kiểm soát False Positive trong các đề xuất có khả năng làm thay đổi cấu hình hoặc dependencies.
+
+False Positive – Báo nhầm: AI xác định sai nguyên nhân hoặc đề xuất một phiên bản thư viện/cấu hình không phù hợp. Nếu Developer áp dụng ngay, dự án có thể phát sinh lỗi mới, xung đột dependencies hoặc không thể khởi chạy.
+False Negative – Bỏ sót: AI không phát hiện được một lỗi thực tế. Developer vẫn phải tiếp tục kiểm tra log và debug thủ công, làm tăng thời gian xử lý.
+Cơ sở từ phỏng vấn: Dev 2 và Dev 3 đều cảnh báo nguy cơ phát sinh lỗi mới hoặc xung đột dependencies khi áp dụng đề xuất sai. Đây là cơ sở để nhóm ưu tiên kiểm soát đề xuất sai có tác động đến môi trường.
+Biện pháp thiết kế:
+AI phải giải thích nguyên nhân và chỉ ra dòng log hoặc thông tin cấu hình liên quan.
+AI đưa ra đề xuất kèm mức độ tin cậy và cảnh báo khi thiếu thông tin.
+Không tự động thay đổi source code, runtime hoặc dependencies.
+Developer phải kiểm tra và xác nhận trước khi áp dụng.
+Cho phép quay lại cấu hình ban đầu nếu thay đổi không hiệu quả.
 ---
 
 ## 7. Problem Statement v1 + tiêu chí đánh giá (CP6)
