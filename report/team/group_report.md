@@ -193,8 +193,31 @@ Bottleneck chính nằm ở bước 5 với 240 phút, chiếm khoảng 66,7% t�
 Ghi rõ bước nào **Rule**, bước nào **AI**, bước nào **con người**, **boundary** ở đâu, **phương án quay về** khi AI sai.
 
 ```text
+TƯƠNG LAI — Tổng thời gian: ~27 phút (giảm 92% so với 360 phút hiện tại)
 
+[1. Script kiểm tra .env & kích hoạt Docker Compose: 5']  <--- RULE (No-AI)
+        ↓
+[2. Docker build & khởi chạy container ứng dụng: 5']        <--- RULE (No-AI)
+        ↓
+    (Build fail?) 
+    ├── KHÔNG: [Code chạy thành công - Hoàn tất: 0']
+    └── CÓ:
+        ↓
+[3. AI trích xuất stack trace & đề xuất lệnh vá: 2']        <--- AI WORKFLOW (Prediction)
+        ↓
+[4. Kỹ sư duyệt lệnh an toàn & bấm chạy vá lỗi: 15']       <--- CON NGƯỜI (HITL / Action)
+        ↓
+    (Vá thành công?)
+    ├── CÓ:  [Container build pass & chạy code: 0']
+    └── KHÔNG: [ROLLBACK: Gửi log đã bóc tách nhờ Techlead hỗ trợ thủ công]
 ```
+
+*Phân định trách nhiệm & Boundary:*
+- **Rule (No-AI):** Bước 1 & 2 do Dockerfile và script bash/powershell chuẩn hóa tự động chạy, kiểm tra biến môi trường và đóng gói runtime cô lập.
+- **AI Workflow:** Bước 3 chỉ kích hoạt khi container build crash. AI tiếp nhận log terminal và file khai báo (`package.json`/`requirements.txt`), trích xuất đúng tên gói xung đột và sinh câu lệnh vá (`npm install ...`, đổi base image).
+- **Con người (HITL):** Bước 4 kỹ sư là người duy nhất có quyền kiểm duyệt cú pháp lệnh và bấm thực thi trong terminal.
+- **Boundary:** AI tuyệt đối **không được tự ý chạy lệnh shell**; AI tuyệt đối **không đọc mã nguồn logic nghiệp vụ** của dự án (chỉ đọc log lỗi và file cấu hình manifest).
+- **Phương án quay về (Rollback):** Nếu sau 2 lần chạy lệnh AI gợi ý mà container vẫn crash, hệ thống tự động rollback về commit gần nhất và xuất bản tóm tắt nguyên nhân kèm stack trace sạch để kỹ sư gửi Techlead hỗ trợ thủ công.
 
 ### 4.3. Before / after
 
@@ -229,22 +252,28 @@ Phản biện nhận được (từ AI hoặc nhóm khác) và nhóm có đồng
 
 ### 6.1. Ma trận độ mơ hồ × độ phức tạp
 
-Bài của nhóm nằm ở ô:
+Bài của nhóm nằm ở ô: **Độ phức tạp trung bình × Độ mơ hồ trung bình**
 
 Vì sao:
+- **Độ phức tạp kỹ thuật (Trung bình):** Quy trình gồm 4–5 bước tuần tự, phụ thuộc vào hệ điều hành, runtime (Node/Python/JDK) và các dịch vụ database nền. Dù nhiều phụ thuộc nhưng các bước cài đặt và build container đều có quy chuẩn kỹ thuật định sẵn.
+- **Độ mơ hồ (Trung bình):** Khi build crash, stack trace lỗi terminal thường rất dài và nhiễu (hàng nghìn dòng log), có nhiều nguyên nhân khác nhau (lệch version Node, thiếu thư viện native C++, xung đột peer-dependency) cần AI suy luận ngữ cảnh để tìm đúng nguyên nhân gốc rễ. Tuy nhiên, đầu ra mong muốn lại rất rõ ràng và tất định: đưa container về trạng thái build pass.
 
 ### 6.2. So sánh 4 mức
 
 | Mức | Phương án cho bài của nhóm | Đủ khi nào | Rủi ro | Chọn? |
 |---|---|---|---|---|
-| **No AI** (sửa quy trình) | | | | |
-| **Rule** | | | | |
-| **Workflow** | | | | |
-| **Agent** | | | | |
+| **No AI** (sửa quy trình) | Viết lại tài liệu README.md chuẩn, quy định checklist cài đặt | Đủ khi dự án mới, ít dependency, người cài có nhiều kinh nghiệm | Tài liệu nhanh chóng lỗi thời sau vài sprint; dev mới vẫn kẹt khi gặp lỗi crash | Không |
+| **Rule** | Script tự động kiểm tra `.env` và đóng gói toàn bộ qua Dockerfile | Đủ khi các thư viện không bị deprecated, base image còn hoạt động tốt | Khi build fail do xung đột package upstream, Rule không thể tự giải thích hay gỡ lỗi | Đóng vai trò nền tảng |
+| **Workflow** | Docker chuẩn hóa hạ tầng; khi crash, kích hoạt AI đọc log phân tích và gợi ý lệnh vá; kỹ sư duyệt và chạy | Đủ để xử lý các lỗi xung đột dependency phức tạp, bóc tách log lỗi thành lệnh vá dễ hiểu | AI có thể gợi ý sai phiên bản thư viện mới (kiểm soát được bằng Human-in-the-Loop) | **CHỌN** |
+| **Agent** | AI tự động chạy lặp đi lặp lại các lệnh trong terminal cho đến khi build thành công | Đủ khi muốn tự động hóa hoàn toàn từ đầu đến cuối không cần người | AI sinh ảo giác (hallucination) có thể chạy lệnh phá hoại OS (`sudo rm -rf`), gây vòng lặp vô tận tốn chi phí | Không |
 
-**Mức chọn:**
+**Mức chọn:** **Workflow**
 
-**Vì sao không chọn mức đơn giản hơn:**
+**Vì sao không chọn mức đơn giản hơn:**  
+No-AI và Rule chỉ giải quyết được phần "chuẩn bị và đóng gói" trong điều kiện lý tưởng. Khi xảy ra lỗi crash do xung đột thư viện cũ, Rule (if/else) không thể bao quát hàng nghìn biến thể lỗi, người mới vẫn mất 4–8 tiếng và phải nhờ Techlead.
+
+**Vì sao không chọn mức phức tạp hơn (Agent):**  
+Cấp quyền cho Agent tự ý thực thi lệnh trong terminal mang rủi ro bảo mật hệ thống quá cao, dễ dẫn đến lỗi phá hoại dữ liệu cục bộ hoặc cài mã độc qua npm/pip. Mức Workflow đảm bảo sự cân bằng hoàn hảo giữa tự động hóa thông minh và an toàn hệ thống (Human-in-the-Loop).
 
 ### 6.3. AI Canvas rút gọn
 
@@ -327,24 +356,40 @@ Cho phép quay lại cấu hình ban đầu nếu thay đổi không hiệu qu�
 
 ### 8.2. Kết luận
 
-**Quyết định:** Go / Not Yet / No-Go
+**Quyết định:** **Go (Phạm vi nhỏ - Pilot)**
 
 **Lý do:**
+1. **Nỗi đau lớn & xác thực:** Mất 4–8 tiếng (bottleneck 270 phút) cho mỗi lần setup dự án cũ, gây lãng phí thời gian của cả nhân sự mới lẫn Senior/Techlead.
+2. **Rủi ro kiểm soát tốt:** Cả 4 rủi ro đều ở mức an toàn/thấp; ranh giới an toàn (Boundary & HITL) bảo vệ tuyệt đối hệ thống và mã nguồn dự án.
+3. **Mức can thiệp hợp lý:** Kết hợp hài hòa giữa No-AI (Docker) và AI Workflow (phân tích log build fail), hoàn toàn nằm trong năng lực kỹ thuật và môi trường cục bộ của nhóm.
 
-**Nếu Go — pilot nhỏ nhất:**
+**Nếu Go — pilot nhỏ nhất:**  
+Thử nghiệm giải pháp trên 2 stack công nghệ phổ biến nhất hay gặp lỗi xung đột dependency: các dự án Web Node.js/TypeScript (gặp lỗi peer-dependency cũ) và dự án Python/Django (xung đột version thư viện C++ native).
 
-**Nếu Not Yet — cần kiểm chứng gì trước:**
+**Nếu Not Yet — cần kiểm chứng gì trước:**  
+*(Không áp dụng do quyết định là Go)*
 
-**Nếu No-Go — nên làm gì thay AI:**
+**Nếu No-Go — nên làm gì thay AI:**  
+*(Không áp dụng do quyết định là Go)*
 
-**Ngưỡng dừng** (nếu sau … mà … thì quay về …):
+**Ngưỡng dừng** (nếu sau … mà … thì quay về …):  
+Nếu sau **2 tuần pilot** mà AI gợi ý sai quá **40% lỗi dependency** hoặc không giúp kỹ sư giảm thời gian gỡ lỗi xuống dưới **45 phút**, nhóm sẽ dừng giải pháp AI và quay về quy trình No-AI truyền thống: viết checklist cài đặt thủ công và chuẩn hóa sẵn bộ Dockerfile mẫu.
 
 ---
 
 ## 9. Hạn chế và hướng tiếp theo
 
--
+- **Hạn chế:** Hiện tại giải pháp chỉ phân tích được các file log build bằng tiếng Anh của các package manager phổ biến (npm, yarn, pip); chưa hỗ trợ tốt các dự án C/C++ embedded đòi hỏi toolchain phần cứng đặc thù.
+- **Hướng tiếp theo:** Mở rộng cơ chế tự động sinh file cấu hình VS Code Dev Containers (`.devcontainer.json`) để kỹ sư có thể mở dự án chạy ngay chỉ với 1 click trong VS Code.
 
 ## 10. Tài liệu tham khảo
 
--
+1. Teresa Torres (2021), *Continuous Discovery Habits: Discover Products that Create Customer Value and Business Value*, Product Talk LLC.
+2. Rob Fitzpatrick (2013), *The Mom Test: How to talk to customers & learn if your business is a good idea when everyone is lying to you*, Founder Centric.
+3. Jeff Gothelf & Josh Seiden (2021), *Lean UX: Designing Great Products with Agile Teams* (3rd ed.), O'Reilly Media.
+4. Ajay Agrawal, Joshua Gans, Avi Goldfarb (2018), *Prediction Machines: The Simple Economics of Artificial Intelligence*, Harvard Business Review Press.
+5. Google PAIR (People + AI Research) (2023), *People + AI Guidebook: Designing human-centered AI products*, https://pair.withgoogle.com/guidebook/.
+6. Marty Cagan (2017), *Inspired: How to Create Tech Products Customers Love* (2nd ed.), Silicon Valley Product Group (SVPG), Wiley.
+7. Anthropic (2024), *Building Effective Agents*, https://www.anthropic.com/research/building-effective-agents.
+8. Docker Documentation (2026), *Overview of Docker Compose and Containerized Development Environments*, https://docs.docker.com/compose/.
+9. Visual Studio Code Documentation (2026), *Developing inside a Container using Visual Studio Code Remote Development*, https://code.visualstudio.com/docs/devcontainers/containers.
