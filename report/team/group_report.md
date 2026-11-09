@@ -129,9 +129,9 @@ Tổng hợp:
 
 | Công cụ / case / pattern | Link | Giải bước nào trong quy trình? | Điểm mạnh | Khoảng trống / rủi ro | Bài học cho nhóm |
 |---|---|---|---|---|---|
-| | | | | | |
-| | | | | | |
-| | | | | | |
+| **VS Code Dev Containers** | https://code.visualstudio.com/docs/devcontainers/containers | Bước 2 & 3: Cài đặt runtime, SDK, database và đồng bộ cấu hình IDE | Đóng gói sẵn toàn bộ môi trường chuẩn trong file `devcontainer.json`, bật lên là chạy ngay, triệt tiêu lỗi "chạy được trên máy anh nhưng lỗi máy em" | Đòi hỏi Techlead/Senior phải tốn công thiết lập chuẩn từ đầu. Các dự án outsource/maintain cũ thường chưa có sẵn, hoặc cấu hình cũ không tương thích kiến trúc chip mới | Giải pháp lý tưởng cho dự án mới, nhưng không giải quyết ngay được pain point khi Dev mới/Tester phải tiếp nhận một repo outsource/maintain cũ chưa được chuẩn hóa |
+| **Docker Compose + `.env` (No-AI)** | https://docs.docker.com/compose/ | Bước 2 & 3: Container hóa môi trường (Dockerfile + docker-compose) kèm script kiểm tra biến `.env` | Cô lập môi trường tốt (runtime, DB), chuẩn hóa cấu hình qua script tự động kiểm tra `.env`, giảm thời gian cài đặt thủ công ở Bước 2 (45') và Bước 3 (30') | File `README.md`, `Dockerfile` hoặc `package.json`/`requirements.txt` ở dự án cũ thường lỗi thời. Khi sang Bước 4 (Build & run) bị crash do thư viện deprecated hoặc xung đột version với OS, Docker chỉ ném ra log lỗi dài mà không chỉ cách sửa | Phương án No-AI giải quyết tốt khâu tự động hóa khởi tạo (Bước 2–3), nhưng khi build fail ở Bước 4 (mất 180') và phải gọi Techlead ở Bước 5 (90') thì vẫn cần AI chẩn đoán |
+| **GitHub Copilot CLI** | https://docs.github.com/en/copilot/github-copilot-in-the-cli | Bước 4: Giải thích thông báo lỗi (error log) và gợi ý lệnh sửa trên terminal | Tích hợp trực tiếp tại terminal (`gh copilot explain` / `suggest`), giải thích nhanh ý nghĩa lỗi và gợi ý cú pháp câu lệnh mà không cần rời màn hình đi tìm kiếm | Thiếu ngữ cảnh đối chiếu của dự án: chỉ đọc được đoạn lỗi ngắn trên terminal chứ không tự động đối chiếu chéo giữa `package.json` / `requirements.txt` với hệ điều hành thực tế của máy. Dễ gợi ý các lệnh ép cài đặt (`--force`, `sudo`) làm hỏng chuỗi dependency của dự án cũ | Không thể chỉ hỏi AI bằng đoạn log rời rạc. Cần một **Workflow** dùng script gom đủ bộ 3 đầu vào: `[Log lỗi khi build fail] + [package.json / requirements.txt] + [Thông tin OS/Runtime]` trước khi đưa vào AI |
 
 ---
 
@@ -167,11 +167,11 @@ Ghi rõ bước nào **Rule**, bước nào **AI**, bước nào **con người*
 
 | Chỉ số | Trước | Sau (kỳ vọng) | Ghi chú |
 |---|---:|---:|---|
-| Số bước | | | |
-| Tổng thời gian | | | |
-| Số bước thủ công | | | |
-| Bottleneck chính | | | |
-| Rủi ro mới phát sinh | | | |
+| Số bước | 5 | 4 | Rút gọn bước cài đặt thủ công (nhờ Docker + script kiểm tra `.env`) và loại bỏ hoàn toàn Bước 5 (chờ Dev cũ/Techlead sang pair-debug 90') |
+| Tổng thời gian |  360' | 40' | Giảm từ 6 tiếng (15' + 45' + 30' + 180' + 90') xuống 40 phút (25' chạy chuẩn hóa bước 1–3 + 15' xử lý lỗi build cùng AI) |
+| Số bước thủ công | 5/5 | 2/4 | Bước kiểm tra `.env` và gom ngữ cảnh lỗi do Rule (script) chạy; Dev mới/Tester chỉ tự duyệt lệnh gợi ý của AI (HITL) và xác nhận chạy code |
+| Bottleneck chính | Bước 4 & 5: Dò lỗi mâu thuẫn dependency (180') & gọi Dev cũ/Techlead pair-debug (90') = 270' | Dev mới / Tester kiểm tra lệnh gợi ý của AI và chạy thử (15') | Bottleneck chuyển thành bước kiểm soát an toàn có chủ đích, thời gian ngắn (15') và không làm gián đoạn người khác |
+| Rủi ro mới phát sinh | - | AI chỉ sai version xung đột hoặc gợi ý lệnh can thiệp hệ thống (`sudo`, `--force`) làm hỏng môi trường máy cục bộ | Kiểm soát bằng Boundary (cấm AI tự thực thi lệnh trên máy) và 3 tiêu chí đánh giá đầu ra ở Mục 7 |
 
 ---
 
@@ -235,29 +235,30 @@ Vì sao:
 
 | Trường | Nội dung |
 |---|---|
-| **Actor** | |
-| **Quy trình** | |
-| **Bottleneck** | |
-| **Impact** | |
-| **Success Metric** (baseline → target, cách đo) | |
-| **Boundary** | |
-| **AI intervention point** | |
-| **Mức chọn** | No AI / Rule / Workflow / Agent |
-| **Rủi ro & người kiểm tra** | |
+| **Actor** | Developer mới join dự án, Tester, và Techlead / Senior phụ trách dự án (trong bối cảnh ngày đầu tiếp nhận dự án outsource/maintain cũ hoặc onboard thành viên mới) |
+| **Quy trình** | 1. Nhận quyền truy cập repo & đọc `README.md` cũ (15') → 2. Tải và cài đặt runtime, SDK, database theo docs cũ (45') → 3. Cài đặt dependencies & tạo file `.env` (30') → 4. Build và run project, gặp lỗi crash do xung đột thư viện/version (180') → 5. Nhờ Dev cũ hoặc Techlead sang pair-debug và sửa từng lỗi cấu hình (90') |
+| **Bottleneck** | Bước 4 & 5: Dò lỗi mâu thuẫn dependency (180') và phải gọi Dev cũ/Techlead hỗ trợ pair-debug trực tiếp (90') — mất tổng cộng 270 phút / 360 phút |
+| **Impact** | Lãng phí 4–8 tiếng của nhân sự mới (Dev/Tester); làm gián đoạn 1–2 tiếng của Senior/Techlead; chậm tiến độ kickoff sprint 1–2 ngày (xảy ra 5–6 lần/quý) |
+| **Success Metric** (baseline → target, cách đo) | (1) Tổng thời gian setup giảm từ 360' xuống 40'; (2) Thời gian thao tác và gỡ lỗi cấu hình/dependency giảm từ 270' xuống 15' (vượt mục tiêu ban đầu là dưới 30'); (3) Số lần cần Dev cũ/Senior can thiệp trực tiếp giảm từ 3–4 lần xuống 0 lần |
+| **Boundary** | AI không tự động thực thi lệnh trên terminal của người dùng, không gợi ý các lệnh can thiệp file hệ thống hoặc leo thang đặc quyền (`sudo`, `rm -rf`), không tự ý ghi đè file cấu hình gốc (`package.json`, `requirements.txt`, `.env`) khi người cài chưa duyệt |
+| **AI intervention point** | Ngay tại Bước 4 khi lệnh build/run bị fail: Script (Rule) tự động kiểm tra biến môi trường `.env` và gom `[Log lỗi build] + [package.json / requirements.txt] + [Thông tin OS/Runtime]` gửi cho AI để chỉ ra đúng version xung đột và đề xuất lệnh sửa  |
+| **Mức chọn** | Workflow |
+| **Rủi ro & người kiểm tra** | AI chẩn đoán sai thư viện xung đột, bịa version không tồn tại hoặc đề xuất lệnh làm hỏng môi trường cục bộ → **Dev mới / Tester** trực tiếp kiểm tra lệnh gợi ý và chạy thử trong môi trường cô lập (Docker/venv); **Techlead** chỉ review PR cập nhật `README.md` sau khi code đã chạy thành công |
 
 **Thay đổi so với v0 và lý do:**
 
 | Trường | v0 | v1 | Vì sao đổi |
 |---|---|---|---|
-| | | | |
+| **Success Metric** | Đặt mục tiêu giảm thời gian gỡ lỗi từ 270' xuống dưới 30' và giảm số lần gọi người khác từ 3–4 lần xuống 0 lần | Chốt cụ thể chỉ số tổng thời gian từ **360' → 40'**, thời gian gỡ lỗi từ **270' → 15'**, số lần làm phiền Senior từ **3 lần → 0 lần**, kèm bộ tiêu chí đánh giá chất lượng lệnh của AI | Cụ thể hóa cả thời gian tổng thể (bước 1–3 kết hợp No-AI/Rule giảm từ 90' xuống 25') lẫn thời gian debug (bước 4–5 dùng AI giảm từ 270' xuống 15') và đảm bảo lệnh gợi ý phải chạy được thực tế |
+| **AI intervention point & Mức chọn** | Đang phân vân giữa "Rule hoặc Workflow"; dự kiến đưa log lỗi cho AI phân tích | Chốt mức **Workflow**: kết hợp **Rule** (script tự động kiểm tra `.env` và gom đủ 3 nguồn dữ liệu: log lỗi + `package.json`/`requirements.txt` + OS) trước khi đưa vào **AI** | Qua research ở Mục 3.3 (bài học từ Docker Compose và Copilot CLI), nếu thiếu Rule kiểm tra `.env` và gom ngữ cảnh file cấu hình thì AI sẽ đoán mò hoặc bỏ sót lỗi thiếu biến môi trường |
 
 **Tiêu chí đánh giá đầu ra của AI (3–5 tiêu chí):**
 
 | # | Tiêu chí | Đạt khi | Không đạt khi |
 |---:|---|---|---|
-| 1 | | | |
-| 2 | | | |
-| 3 | | | |
+| 1 | **Chỉ đúng tên thư viện và version xung đột** | Chỉ ra chính xác tên package/thư viện đang gây crash khi build và nêu đúng phiên bản mâu thuẫn khớp với `error log`, file `package.json` / `requirements.txt` và hệ điều hành của người dùng | Đoán mò thư viện không có trong log lỗi, không phát hiện ra mâu thuẫn giữa file cấu hình với OS/SDK, hoặc bịa ra tên package/version không tồn tại |
+| 2 | **An toàn hệ thống (Không can thiệp file hệ thống)** | Các câu lệnh đề xuất chỉ tác động trong phạm vi thư mục dự án hoặc môi trường ảo/container cục bộ (`venv`, `node_modules`, Docker) và giữ nguyên tính toàn vẹn của máy | Gợi ý các lệnh can thiệp vào file hệ thống của OS, yêu cầu quyền quản trị (`sudo`, `chmod 777`, `rm -rf` ngoài dự án) hoặc dùng cờ ép buộc (`--force`) phá vỡ các thư viện khác trên máy |
+| 3 | **Lệnh phải chạy được và khắc phục được lỗi build** | Cú pháp câu lệnh chuẩn xác với OS và package manager của dự án; khi Dev mới/Tester copy chạy thử thì thực thi thành công ngay lần đầu và vượt qua được bước crash ở Bước 4 | Lệnh sai cú pháp (báo syntax error), gọi sai flag/tham số của công cụ, hoặc chạy xong nhưng khi build lại vẫn bị crash ở đúng lỗi xung đột cũ |
 
 ---
 
