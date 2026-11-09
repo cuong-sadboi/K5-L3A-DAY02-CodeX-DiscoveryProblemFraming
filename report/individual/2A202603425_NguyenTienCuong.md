@@ -154,7 +154,7 @@ HIỆN TẠI — Tổng thời gian: ~90 phút
 
 | Hoạt động | Tôi đã làm gì? | Kết quả / ảnh hưởng tới bài nhóm |
 |---|---|---|
-| Pitch Problem Card | | |
+| Pitch Problem Card | Chuẩn bị và trình bày Problem Card #1: "Setup môi trường dự án outsource/maintain cũ (hoặc onboard dev mới) bị lỗi thời tài liệu và xung đột dependency" trong 2 phút; nêu rõ bottleneck tốn 270 phút | (Chờ nhóm pitch và phản biện) |
 | Phản biện bài của bạn khác | Câu hỏi tôi đã đặt: | |
 | Nhận phản biện | Câu hỏi tôi nhận được: | Tôi đã sửa gì: |
 | Gom cluster / cây OST | | |
@@ -173,7 +173,7 @@ HIỆN TẠI — Tổng thời gian: ~90 phút
 |---|---|---|---|---|
 | CP1 Scan | Gợi ý thêm các góc nhìn vấn đề quanh quy trình phát triển phần mềm | Mở rộng thêm các khía cạnh tốn thời gian như release notes, standup log, phân tích log lỗi 500 | Gợi ý các giải pháp viển vông ("AI tự fix bug", "chatbot nói chuyện với khách") và không có số liệu đo lường thật | Loại bỏ các ý không khả thi, tự viết lại Job Story và gắn số liệu thời gian/tần suất thật từ các dự án đã làm |
 | CP2 Problem Card | Đóng vai PM hoài nghi để phản biện và chỉ ra lỗ hổng trong Problem Card | Chỉ ra điểm yếu về việc metric thời gian quá lạc quan và rủi ro bảo mật nếu để AI tự chạy lệnh shell | Gợi ý giải pháp AI Agent phức tạp tự sửa code, xem nhẹ vai trò của Docker/Rule | Giữ vững quan điểm No AI (Docker) là nền tảng, AI chỉ hỗ trợ phân tích log lỗi xung đột; bổ sung boundary con người duyệt lệnh |
-| CP4 Research | | | | |
+| CP4 Research | Tìm kiếm các công cụ và pattern hiện có trên thị trường đã giải quyết bài toán setup môi trường | Gợi ý nhanh các công cụ thực tế như Dev Containers, Docker Compose và GitHub Copilot in the CLI | Đưa một số đường link bài viết không tồn tại (lỗi 404) và phóng đại khả năng tự động fix bug của terminal tools | Tự tay mở từng link tài liệu chính thức của Microsoft, Docker và GitHub để kiểm chứng, chỉ giữ lại các tính năng có thật |
 | CP5 Quy trình | | | | |
 | CP5–6 Problem Statement | | | | |
 | CP6 Mức can thiệp / quyết định | | | | |

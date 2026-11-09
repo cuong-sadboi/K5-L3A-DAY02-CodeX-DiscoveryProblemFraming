@@ -84,8 +84,9 @@ Mỗi thành viên thêm một mục theo mẫu dưới đây, tiêu đề là `
 - Biết cách kiểm chứng một vấn đề bằng trải nghiệm thực tế thay vì chỉ dựa vào giả định.
 - Hiểu cách phân tích quy trình để xác định bottleneck và lựa chọn mức độ can thiệp AI phù hợp.
 - Nhận ra AI nên hỗ trợ Developer ra quyết định, không nên tự ý thay đổi dự án khi chưa được kiểm tra.
-
 ### HoVaTen-MSSV
+
+> *(Các thành viên khác rebase về và copy mục này thành tên mình để tự điền phần việc cá nhân)*
 
 **Phần việc phụ trách:**
 
