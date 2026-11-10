@@ -15,7 +15,7 @@
 | 1 | Nguyễn Tiến Cường | 2A202603425 | Nhóm trưởng, Kiến trúc giải pháp (System Architect) | cuong-sadboi |
 | 2 | Nguyễn Vũ Khanh | 2A202603427 | Thành viên, Research & Đánh giá AI (Eval) | KhnhVux |
 | 3 | Nguyễn Trần Anh Khôi | 2A202603422 | Thành viên, Kiểm chứng The Mom Test & Quy trình | khoinguyentran1111 |
-| 4 | Nguyễn Quang Vũ | 2A202603407 | Thành viên, Quản trị rủi ro & Thiết kế AI Canvas | Noxclara |
+| 4 | Nguyễn Quang Vũ | 2A202603407 | Thành viên, Quản trị rủi ro & Thiết kế AI Canvas | NguyenVu8888 |
 
 Không ghi email hay số điện thoại vào bảng này, vì repo có thể để public.
 
@@ -92,6 +92,30 @@ Mỗi thành viên thêm một mục theo mẫu dưới đây, tiêu đề là `
 - Biết cách kiểm chứng một vấn đề bằng trải nghiệm thực tế thay vì chỉ dựa vào giả định.
 - Hiểu cách phân tích quy trình để xác định bottleneck và lựa chọn mức độ can thiệp AI phù hợp.
 - Nhận ra AI nên hỗ trợ Developer ra quyết định, không nên tự ý thay đổi dự án khi chưa được kiểm tra.
+
+### NguyenQuangVu-2A202603407
+
+**Phần việc phụ trách:**
+
+- Thành viên phản biện nhóm CodeX, tham gia pitch và phản biện tại CP3.
+- Quản trị rủi ro, Thiết kế AI Canvas & Ranh giới an toàn (Gatekeeper)
+
+**Đóng góp cụ thể** (mình đã làm gì, ra sản phẩm gì):
+
+- Hoàn thành báo cáo cá nhân CP1 (7 problem) và CP2 (3 Problem Card + quy trình nháp).
+- [CP4] Bảng Assumption Map: Lập 4-5 giả định cốt lõi về giá trị, tính khả thi kỹ thuật và mức độ chấp nhận của người dùng; chấm điểm quan trọng vs bằng chứng.
+- [CP5] Soạn thảo Problem Statement v0: Điền đủ 6 trường: Actor, Quy trình, Bottleneck, Impact, Success Metric (270' -> 30'), Boundary (AI không tự ý chạy script quyền root). Lưu ý: Không viết từ "AI" vào phần mô tả problem.
+- [CP6] Thiết kế AI Canvas rút gọn: Điền 6 ô: Prediction (AI đoán package lỗi & gợi ý lệnh) -> Judgment (Dev duyệt lệnh) -> Action (Dev chạy lệnh) -> Outcome (build pass) -> Input (chỉ lấy log crash + package.json, TUYỆT ĐỐI KHÔNG ĐỌC SOURCE CODE BẢO MẬT) -> Feedback.
+- [CP6] Đánh giá 4 rủi ro sản phẩm: Đánh giá Value, Usability, Feasibility, Viability (ở mức an toàn/thấp).
+
+**Bằng chứng** (phần nào trong `group_report.md`, file nào trong `report/assets/`, commit nào):
+
+- `report/individual/2A202603407_NguyenQuangVu.md`.
+- Lịch sử commit trên branch cá nhân / repo từ tài khoản `NguyenVu8888`.
+
+**Điều mình học được từ phần nhóm:**
+
+- (Sẽ điền sau khi hoàn thành phần làm việc nhóm ở CP7).
 ### HoVaTen-MSSV
 
 > *(Các thành viên khác rebase về và copy mục này thành tên mình để tự điền phần việc cá nhân)*

@@ -18,47 +18,45 @@
 
 Lăng kính: **Lặp lại** · **Tốn thời gian** · **Cần đọc, tổng hợp nhiều thông tin** · **Pain từ người khác**.
 
-| # | Lăng kính | Job Story: Khi… tôi muốn… để… | Ai chịu ảnh hưởng? | Dấu hiệu thật (thời gian, tần suất, số người, bằng chứng) |
-|---:|---|---|---|---|
-| 1 | | | | |
-| 2 | | | | |
-| 3 | | | | |
-| 4 | | | | |
-| 5 | | | | |
-| 6 | | | | |
-| 7 | | | | |
-| 8 | | | | |
+|   # | Lăng kính | Job Story: Khi… tôi muốn… để… | Ai chịu ảnh hưởng? | Dấu hiệu thật (thời gian, tần suất, số người, bằng chứng) |
+| --: | --------- | ----------------------------- | ------------------ | --------------------------------------------------------- |
+|   1 |           |                               |                    |                                                           |
+|   2 |           |                               |                    |                                                           |
+|   3 |           |                               |                    |                                                           |
+|   4 |           |                               |                    |                                                           |
+|   5 |           |                               |                    |                                                           |
+|   6 |           |                               |                    |                                                           |
+|   7 |           |                               |                    |                                                           |
+|   8 |           |                               |                    |                                                           |
 
 **Nếu có dùng AI để gợi ý thêm:** ý nào AI gợi ý mà bạn giữ lại, ý nào bỏ và vì sao.
 
--
-
----
+- ***
 
 ## 3. Top 3 Problem Cards + quy trình nháp (CP2)
 
 ### Bảng chọn top 3
 
 | Rank | Problem | Vì sao chọn | Điều còn chưa chắc |
-|---:|---|---|---|
-| 1 | | | |
-| 2 | | | |
-| 3 | | | |
+| ---: | ------- | ----------- | ------------------ |
+|    1 |         |             |                    |
+|    2 |         |             |                    |
+|    3 |         |             |                    |
 
 ### Problem Card #1
 
-| Trường | Nội dung |
-|---|---|
-| Job Story | Khi …, tôi muốn …, để … |
-| Actor | |
-| Thời điểm / bối cảnh | |
-| Quy trình hiện tại (3–7 bước) | |
-| Bottleneck (bước nào, mất bao nhiêu phút) | |
-| Impact (nếu không giải thì sao) | |
-| Success metric (baseline → target) | |
-| Phương án không dùng AI | |
-| Giả thuyết về AI (nếu có) | |
-| Cảm nhận nhanh | No AI / Rule / Workflow / Agent / Chưa biết |
+| Trường                                    | Nội dung                                    |
+| ----------------------------------------- | ------------------------------------------- |
+| Job Story                                 | Khi …, tôi muốn …, để …                     |
+| Actor                                     |                                             |
+| Thời điểm / bối cảnh                      |                                             |
+| Quy trình hiện tại (3–7 bước)             |                                             |
+| Bottleneck (bước nào, mất bao nhiêu phút) |                                             |
+| Impact (nếu không giải thì sao)           |                                             |
+| Success metric (baseline → target)        |                                             |
+| Phương án không dùng AI                   |                                             |
+| Giả thuyết về AI (nếu có)                 |                                             |
+| Cảm nhận nhanh                            | No AI / Rule / Workflow / Agent / Chưa biết |
 
 Quy trình nháp hiện tại:
 
@@ -68,18 +66,18 @@ Quy trình nháp hiện tại:
 
 ### Problem Card #2
 
-| Trường | Nội dung |
-|---|---|
-| Job Story | Khi …, tôi muốn …, để … |
-| Actor | |
-| Thời điểm / bối cảnh | |
-| Quy trình hiện tại (3–7 bước) | |
-| Bottleneck (bước nào, mất bao nhiêu phút) | |
-| Impact (nếu không giải thì sao) | |
-| Success metric (baseline → target) | |
-| Phương án không dùng AI | |
-| Giả thuyết về AI (nếu có) | |
-| Cảm nhận nhanh | No AI / Rule / Workflow / Agent / Chưa biết |
+| Trường                                    | Nội dung                                    |
+| ----------------------------------------- | ------------------------------------------- |
+| Job Story                                 | Khi …, tôi muốn …, để …                     |
+| Actor                                     |                                             |
+| Thời điểm / bối cảnh                      |                                             |
+| Quy trình hiện tại (3–7 bước)             |                                             |
+| Bottleneck (bước nào, mất bao nhiêu phút) |                                             |
+| Impact (nếu không giải thì sao)           |                                             |
+| Success metric (baseline → target)        |                                             |
+| Phương án không dùng AI                   |                                             |
+| Giả thuyết về AI (nếu có)                 |                                             |
+| Cảm nhận nhanh                            | No AI / Rule / Workflow / Agent / Chưa biết |
 
 Quy trình nháp hiện tại:
 
@@ -89,18 +87,18 @@ Quy trình nháp hiện tại:
 
 ### Problem Card #3
 
-| Trường | Nội dung |
-|---|---|
-| Job Story | Khi …, tôi muốn …, để … |
-| Actor | |
-| Thời điểm / bối cảnh | |
-| Quy trình hiện tại (3–7 bước) | |
-| Bottleneck (bước nào, mất bao nhiêu phút) | |
-| Impact (nếu không giải thì sao) | |
-| Success metric (baseline → target) | |
-| Phương án không dùng AI | |
-| Giả thuyết về AI (nếu có) | |
-| Cảm nhận nhanh | No AI / Rule / Workflow / Agent / Chưa biết |
+| Trường                                    | Nội dung                                    |
+| ----------------------------------------- | ------------------------------------------- |
+| Job Story                                 | Khi …, tôi muốn …, để …                     |
+| Actor                                     |                                             |
+| Thời điểm / bối cảnh                      |                                             |
+| Quy trình hiện tại (3–7 bước)             |                                             |
+| Bottleneck (bước nào, mất bao nhiêu phút) |                                             |
+| Impact (nếu không giải thì sao)           |                                             |
+| Success metric (baseline → target)        |                                             |
+| Phương án không dùng AI                   |                                             |
+| Giả thuyết về AI (nếu có)                 |                                             |
+| Cảm nhận nhanh                            | No AI / Rule / Workflow / Agent / Chưa biết |
 
 Quy trình nháp hiện tại:
 
@@ -117,38 +115,38 @@ Quy trình nháp hiện tại:
 ### AI đã phản biện card thế nào
 
 | Điểm yếu AI chỉ ra | Đồng ý? | Đã sửa gì |
-|---|---|---|
-| | | |
+| ------------------ | ------- | --------- |
+|                    |         |           |
 
 ---
 
 ## 4. Tôi đã tham gia phần nào (CP3 → CP7)
 
-| Hoạt động | Tôi đã làm gì? | Kết quả / ảnh hưởng tới bài nhóm |
-|---|---|---|
-| Pitch Problem Card | | |
-| Phản biện bài của bạn khác | Câu hỏi tôi đã đặt: | |
-| Nhận phản biện | Câu hỏi tôi nhận được: | Tôi đã sửa gì: |
-| Gom cluster / cây OST | | |
-| Chọn candidate problem | | |
-| Kiểm chứng / research | | |
-| Quy trình nhóm | | |
-| Problem Statement | | |
-| Mức can thiệp AI | | |
-| Quyết định | | |
+| Hoạt động                  | Tôi đã làm gì?         | Kết quả / ảnh hưởng tới bài nhóm |
+| -------------------------- | ---------------------- | -------------------------------- |
+| Pitch Problem Card         |                        |                                  |
+| Phản biện bài của bạn khác | Câu hỏi tôi đã đặt:    |                                  |
+| Nhận phản biện             | Câu hỏi tôi nhận được: | Tôi đã sửa gì:                   |
+| Gom cluster / cây OST      |                        |                                  |
+| Chọn candidate problem     |                        |                                  |
+| Kiểm chứng / research      |                        |                                  |
+| Quy trình nhóm             |                        |                                  |
+| Problem Statement          |                        |                                  |
+| Mức can thiệp AI           |                        |                                  |
+| Quyết định                 |                        |                                  |
 
 ---
 
 ## 5. Dùng AI
 
-| Checkpoint | Tôi dùng AI để làm gì? | AI hữu ích ở đâu? | AI sai hoặc hời hợt ở đâu? | Tôi sửa gì bằng nhận định của mình? |
-|---|---|---|---|---|
-| CP1 Scan | | | | |
-| CP2 Problem Card | | | | |
-| CP4 Research | | | | |
-| CP5 Quy trình | | | | |
-| CP5–6 Problem Statement | | | | |
-| CP6 Mức can thiệp / quyết định | | | | |
+| Checkpoint                     | Tôi dùng AI để làm gì? | AI hữu ích ở đâu? | AI sai hoặc hời hợt ở đâu? | Tôi sửa gì bằng nhận định của mình? |
+| ------------------------------ | ---------------------- | ----------------- | -------------------------- | ----------------------------------- |
+| CP1 Scan                       |                        |                   |                            |                                     |
+| CP2 Problem Card               |                        |                   |                            |                                     |
+| CP4 Research                   |                        |                   |                            |                                     |
+| CP5 Quy trình                  |                        |                   |                            |                                     |
+| CP5–6 Problem Statement        |                        |                   |                            |                                     |
+| CP6 Mức can thiệp / quyết định |                        |                   |                            |                                     |
 
 ---
 
@@ -168,7 +166,7 @@ Trả lời bằng trải nghiệm thật của bạn, tối thiểu 200 từ ch
 
 **6.6. Nếu làm lại, tôi sẽ đổi gì? Tôi sẽ phản biện nhóm mạnh hơn ở điểm nào?**
 
-**6.7. Hiểu bài:** giải thích bằng 5–8 câu, không nhìn tài liệu, chuỗi *problem → quy trình → metric → boundary → mức can thiệp AI → quyết định* của bài nhóm mình.
+**6.7. Hiểu bài:** giải thích bằng 5–8 câu, không nhìn tài liệu, chuỗi _problem → quy trình → metric → boundary → mức can thiệp AI → quyết định_ của bài nhóm mình.
 
 ---
 
