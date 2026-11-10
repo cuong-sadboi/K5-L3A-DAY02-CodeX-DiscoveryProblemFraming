@@ -6,7 +6,7 @@
 
 - Tên nhóm: CodeX
 - Candidate problem nhóm chọn (1 câu): Khi tiếp nhận một dự án outsource/maintain cũ (hoặc onboard thành viên mới) mà tài liệu cài đặt đã lỗi thời, Developer và Techlead lãng phí 4–8 tiếng để gỡ lỗi crash do xung đột thư viện/version; nhóm chọn bài toán chuẩn hóa môi trường bằng Docker (No-AI) kết hợp AI Workflow phân tích log lỗi build để giảm thời gian setup xuống dưới 30 phút.
-- Quyết định cuối (Go / Not Yet / No-Go): (Chưa quyết định)
+- Quyết định cuối (Go / Not Yet / No-Go): Go (Phạm vi nhỏ - Pilot trên Web Node.js/Python)
 
 ## Thành viên
 
@@ -115,23 +115,33 @@ Mỗi thành viên thêm một mục theo mẫu dưới đây, tiêu đề là `
 
 **Điều mình học được từ phần nhóm:**
 
-- (Sẽ điền sau khi hoàn thành phần làm việc nhóm ở CP7).
-### HoVaTen-MSSV
+- Biết cách kiểm soát các rủi ro sản phẩm (Value, Usability, Feasibility, Viability) và thiết lập ranh giới an toàn (Boundary & HITL) để bảo vệ hệ thống và mã nguồn.
+- Hiểu cách phân công giữa AI và con người thông qua AI Canvas rút gọn, nhận ra AI chỉ nên đề xuất (Prediction), còn con người là người kiểm duyệt (Judgment) và thực thi (Action).
 
-> *(Các thành viên khác rebase về và copy mục này thành tên mình để tự điền phần việc cá nhân)*
+### NguyenVuKhanh-2A202603427
 
 **Phần việc phụ trách:**
 
--
+- Phụ trách nghiên cứu giải pháp thị trường tại CP4 (Mục 3.3): phân tích 3 công cụ VS Code Dev Containers, Docker Compose + .env (No-AI), và GitHub Copilot CLI.
+- Phụ trách xây dựng bảng Before / After tại CP5 (Mục 4.3): đối chiếu định lượng quy trình trước và sau khi áp dụng AI Workflow.
+- Phụ trách soạn thảo Problem Statement v1 và 3 tiêu chí đánh giá AI Eval tại CP6 (Mục 7).
 
 **Đóng góp cụ thể** (mình đã làm gì, ra sản phẩm gì):
 
--
+- Hoàn thành báo cáo cá nhân CP1 (10 problem) và CP2 (3 Problem Card + quy trình nháp).
+- [CP4] Khảo sát chuyên sâu 3 giải pháp thị trường, chỉ ra khoảng trống cốt lõi: Docker ném ra log lỗi dài khi build fail nhưng không chỉ cách sửa, còn Copilot CLI thiếu ngữ cảnh đối chiếu và dễ gợi ý lệnh nguy hiểm (`sudo`, `--force`).
+- [CP5] Thiết lập bảng Before / After đối chiếu chuẩn xác: Tổng thời gian 360' → 40', gỡ lỗi dependency 270' → 15', số lần làm phiền Senior 3 lần → 0 lần.
+- [CP6] Chốt Problem Statement v1 và thiết lập 3 tiêu chí Eval Đạt / Không đạt của AI (chỉ đúng tên thư viện/version xung đột, an toàn không can thiệp file hệ thống, lệnh phải chạy được ngay).
+- Đóng góp các ảnh kết quả survey trong `report/assets/cp4-survey-result-*.png` và sơ đồ quy trình `report/assets/cp5-workflow-future.png`.
 
 **Bằng chứng** (phần nào trong `group_report.md`, file nào trong `report/assets/`, commit nào):
 
--
+- `report/individual/2A202603427_NguyenVuKhanh.md`.
+- Mục 3.3, Mục 4.3, Mục 7 trong `report/team/group_report.md`.
+- Các file ảnh trong `report/assets/`.
+- Lịch sử commit trên branch cá nhân từ tài khoản `KhnhVux`.
 
 **Điều mình học được từ phần nhóm:**
 
--
+- Nhận thức rõ sự khác biệt giữa "sự bất tiện cá nhân khi đi học" và "nỗi đau có tính hệ thống trong thực tế làm việc".
+- Hiểu cách bóc tách bài toán và phân định ranh giới giữa Rule (script gom ngữ cảnh) và AI Workflow, tránh sa đà vào Agent tự chạy lệnh gây rủi ro phá hỏng hệ thống.

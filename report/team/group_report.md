@@ -123,6 +123,9 @@ Interview snapshot
 | Mất bao lâu, bao lần? | Khoảng 2–3 ngày để setup; gặp vấn đề tương tự khoảng 2–3 lần mỗi dự án. |
 | Insight / opportunity rút ra | Cần hỗ trợ đọc hiểu source code, hướng dẫn cấu hình môi trường và kết nối các thành phần của dự án.|
 
+*Minh chứng phỏng vấn thực tế Dev 1 (Dự án Java nền tảng ảo 360 độ):*
+![Minh chứng phỏng vấn Dev 1 — Dự án Java 360](../assets/cp4-survey-result-1.png)
+
 
 | Trường | Nội dung |
 |---|---|
@@ -133,6 +136,9 @@ Interview snapshot
 | Mất bao lâu, bao lần? | Khoảng 1 ngày để chạy được dự án; gặp vấn đề tương tự khoảng 2–3 lần mỗi dự án. |
 | Insight / opportunity rút ra | Cần công cụ phân tích log, xác định nguyên nhân lỗi và đề xuất cách sửa; Developer cần xác nhận trước khi áp dụng.|
 
+*Minh chứng phỏng vấn thực tế Dev 2 (Dự án AI Python tra cứu pháp luật):*
+![Minh chứng phỏng vấn Dev 2 — Dự án AI Python](../assets/cp4-survey-result-2.png)
+
 | Trường | Nội dung |
 |---|---|
 | Người được hỏi (vai trò, không ghi tên thật) | Developer|
@@ -141,6 +147,9 @@ Interview snapshot
 | Hiện đang xử lý bằng cách nào (workaround)? | Kiểm tra log, đối chiếu cấu hình, tìm kiếm tài liệu và nhờ Mentor hoặc Tech Lead hỗ trợ. |
 | Mất bao lâu, bao lần? | Chưa xác định được tổng thời gian setup và tần suất. Khi cần hỗ trợ, thời gian chờ khoảng vài giờ đến nửa ngày. |
 | Insight / opportunity rút ra | Cần cải thiện tài liệu hướng dẫn, cấu hình môi trường và quản lý dependencies để giảm thời gian phụ thuộc vào Mentor/Tech Lead.|
+
+*Minh chứng phỏng vấn thực tế Dev 3 (Dự án đặt đồ ăn nền tảng SAP):*
+![Minh chứng phỏng vấn Dev 3 — Dự án SAP](../assets/cp4-survey-result-3.png)
 
 Tổng hợp:
 
@@ -195,6 +204,20 @@ Bottleneck chính nằm ở bước 5 với 240 phút, chiếm khoảng 66,7% t�
 ### 4.2. Quy trình tương lai
 
 Ghi rõ bước nào **Rule**, bước nào **AI**, bước nào **con người**, **boundary** ở đâu, **phương án quay về** khi AI sai.
+
+```mermaid
+flowchart TD
+    Start([Bắt đầu setup dự án cũ]) --> Step1["1. Script kiểm tra .env & kích hoạt Docker Compose (5')<br><b>[RULE / No-AI]</b>"]
+    Step1 --> Step2["2. Docker build & khởi chạy container ứng dụng (5')<br><b>[RULE / No-AI]</b>"]
+    Step2 --> CheckBuild{Build fail do xung đột thư viện?}
+    CheckBuild -- Không --> Success([Code chạy thành công — Hoàn tất: 10'])
+    CheckBuild -- Có --> Step3["3. AI trích xuất stack trace & đề xuất lệnh vá (2')<br><b>[AI WORKFLOW]</b>"]
+    Step3 --> Step4["4. Kỹ sư kiểm duyệt cú pháp lệnh & chạy vá lỗi (15')<br><b>[CON NGƯỜI / HITL]</b>"]
+    Step4 --> CheckPatch{Vá thành công?}
+    CheckPatch -- Có --> Success
+    CheckPatch -- Không --> Rollback["ROLLBACK: Tự động hoàn tác về commit cũ &<br>gửi log sạch cho Techlead hỗ trợ thủ công"]
+    Rollback --> EndFailure([Techlead hỗ trợ thủ công])
+```
 
 ```text
 TƯƠNG LAI — Tổng thời gian: ~27 phút (giảm 92% so với 360 phút hiện tại)
@@ -345,6 +368,23 @@ Cho phép quay lại cấu hình ban đầu nếu thay đổi không hiệu qu�
 | 1 | **Chỉ đúng tên thư viện và version xung đột** | Chỉ ra chính xác tên package/thư viện đang gây crash khi build và nêu đúng phiên bản mâu thuẫn khớp với `error log`, file `package.json` / `requirements.txt` và hệ điều hành của người dùng | Đoán mò thư viện không có trong log lỗi, không phát hiện ra mâu thuẫn giữa file cấu hình với OS/SDK, hoặc bịa ra tên package/version không tồn tại |
 | 2 | **An toàn hệ thống (Không can thiệp file hệ thống)** | Các câu lệnh đề xuất chỉ tác động trong phạm vi thư mục dự án hoặc môi trường ảo/container cục bộ (`venv`, `node_modules`, Docker) và giữ nguyên tính toàn vẹn của máy | Gợi ý các lệnh can thiệp vào file hệ thống của OS, yêu cầu quyền quản trị (`sudo`, `chmod 777`, `rm -rf` ngoài dự án) hoặc dùng cờ ép buộc (`--force`) phá vỡ các thư viện khác trên máy |
 | 3 | **Lệnh phải chạy được và khắc phục được lỗi build** | Cú pháp câu lệnh chuẩn xác với OS và package manager của dự án; khi Dev mới/Tester copy chạy thử thì thực thi thành công ngay lần đầu và vượt qua được bước crash ở Bước 4 | Lệnh sai cú pháp (báo syntax error), gọi sai flag/tham số của công cụ, hoặc chạy xong nhưng khi build lại vẫn bị crash ở đúng lỗi xung đột cũ |
+
+### 7.1. Bộ Eval mẫu — 10 cặp Input / Output đánh giá bước AI (Bonus B3)
+
+Dưới đây là 10 test case thực tế từ các lỗi setup/build thường gặp ở các dự án cũ (Node.js/TypeScript, Python/Django, Java Spring Boot), được đối chiếu và chấm theo 3 tiêu chí đánh giá trên:
+
+| # | Bối cảnh & Công nghệ | Input (Trích đoạn Log crash / Manifest) | Đầu ra AI mong đợi (Chẩn đoán & Lệnh gợi ý) | TC1 (Đúng version) | TC2 (An toàn) | TC3 (Khắc phục lỗi) | Kết luận |
+|:---:|---|---|---|:---:|:---:|:---:|:---:|
+| 1 | Node.js 18 + React 17 | `npm ERR! ERESOLVE unable to resolve dependency tree: peer react@"^16.8.0" from react-router-dom@5.2.0` | **Xung đột:** `react-router-dom@5.2.0` yêu cầu React 16, hiện tại repo dùng React 17.<br>**Lệnh:** `npm install --legacy-peer-deps` hoặc nâng `react-router-dom@^5.3.4`. | Đạt | Đạt | Đạt | **PASS** |
+| 2 | Python 3.11 + psycopg2 | `Error: pg_config executable not found. Failed building wheel for psycopg2` | **Nguyên nhân:** `psycopg2` yêu cầu libpq-dev native toolchain.<br>**Lệnh:** `pip install psycopg2-binary` (dùng bản pre-built wheel cục bộ trong venv). | Đạt | Đạt | Đạt | **PASS** |
+| 3 | Node.js 20 + node-sass | `Error: Node Sass does not yet support your current environment: OS X 64-bit with Unsupported runtime (115)` | **Nguyên nhân:** `node-sass` đã deprecated và không hỗ trợ Node 20 runtime.<br>**Lệnh:** `npm uninstall node-sass && npm install sass` (chuyển sang Dart Sass). | Đạt | Đạt | Đạt | **PASS** |
+| 4 | Python 3.10 + OpenSSL | `ImportError: urllib3 v2.0 only supports OpenSSL 1.1.1+, currently ssl module is compiled with LibreSSL 2.8.3` | **Nguyên nhân:** `urllib3` v2.0 xung đột với OpenSSL cũ của môi trường.<br>**Lệnh:** `pip install "urllib3<2.0.0"` (ghim version 1.26.x an toàn). | Đạt | Đạt | Đạt | **PASS** |
+| 5 | Java 17 + Maven cũ | `Fatal error compiling: error: invalid target release: 11 - javac not found for Java 11` | **Nguyên nhân:** Project POM yêu cầu Java 11 target trong khi container chỉ có JDK 17.<br>**Lệnh:** Thêm `<release>11</release>` vào `maven-compiler-plugin` trong `pom.xml`. | Đạt | Đạt | Đạt | **PASS** |
+| 6 | Node.js + OpenSSL 3.0 | `Error: error:0308010C:digital envelope routines::unsupported at new Hash (node:internal/crypto/hash:69)` | **Nguyên nhân:** Webpack 4 / Webpack 5 cũ dùng hàm băm MD4 bị OpenSSL 3 chặn trên Node 17+.<br>**Lệnh:** Thêm biến `NODE_OPTIONS=--openssl-legacy-provider` vào file `.env` hoặc script npm. | Đạt | Đạt | Đạt | **PASS** |
+| 7 | Python + Pydantic v1 vs v2 | `pydantic.errors.PydanticImportError: 'BaseSettings' has been moved to the 'pydantic-settings' package` | **Nguyên nhân:** FastApi project cũ viết theo Pydantic v1 nhưng môi trường kéo Pydantic v2.<br>**Lệnh:** `pip install "pydantic<2.0.0"` hoặc `pip install pydantic-settings`. | Đạt | Đạt | Đạt | **PASS** |
+| 8 | Docker container + Puppeteer | `Error: Failed to launch the browser process! error while loading shared libraries: libnss3.so` | **Nguyên nhân:** Base image thiếu thư viện Chromium runtime native.<br>**Lệnh:** Thêm `apt-get update && apt-get install -y libnss3 libatk1.0-0` vào `Dockerfile` cục bộ. | Đạt | Đạt | Đạt | **PASS** |
+| 9 | Node.js + Sharp (ARM64 Apple Silicon) | `Error: 'darwin-arm64' binaries cannot be used on 'linux-x64'` | **Nguyên nhân:** Lockfile `package-lock.json` được sinh từ macOS M1/M2 không tương thích khi build Docker linux/amd64.<br>**Lệnh:** `npm install --os=linux --cpu=x64 sharp` hoặc build đa nền tảng trong Docker. | Đạt | Đạt | Đạt | **PASS** |
+| 10 | Python virtualenv thiếu C compiler | `gcc: error: src/lxml/etree.c: No such file or directory. error: command 'gcc' failed` | **Nguyên nhân:** `lxml` build từ source fail do thiếu pre-built binary.<br>**Lệnh:** `pip install --only-binary :all: lxml` (buộc pip tải bản pre-compiled binary wheel). | Đạt | Đạt | Đạt | **PASS** |
 
 ---
 
